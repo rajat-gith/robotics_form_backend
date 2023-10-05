@@ -2,7 +2,7 @@ const User = require("../models/userModel");
 
 const userController = {
   createUser: async (req, res) => {
-    const { name, email, hallOfResidence, branch, phoneNumber, year } =
+    const { name, email, hallOfResidence, branch, phoneNumber, graduationYear } =
       req.body;
 
     if (
