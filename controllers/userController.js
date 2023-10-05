@@ -18,13 +18,13 @@ const userController = {
     }
   },
 
-  getAllUsers: (req, res) => {
-    User.find({}, (err, users) => {
-      if (err) {
-        return res.status(500).json({ error: "Failed to retrieve entries." });
-      }
+  getAllUsers: async (req, res) => {
+    try {
+      const entries = await User.find({});
       return res.json(entries);
-    });
+    } catch (err) {
+      return res.status(500).json({ error: "Failed to retrieve entries." });
+    }
   },
 };
 
